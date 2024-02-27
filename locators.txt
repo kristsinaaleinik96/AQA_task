@@ -1,1 +1,44 @@
+1. Find elements in DOM using different locator types https://www.amazon.com/. As a result return what you input in DOM search in dev tools for every locator type:
 
+Find by id Search button <input> element CSS locator
+#nav-search-submit-button
+
+Find by classname Back to top button (scroll to footer to see it) <span> element CSS locator
+.navFooterBackToTopText
+
+Find by @aria-label attribute Language dropdown <a> element CSS locator
+#nav-tools [aria-label="Choose a language for shopping."] - для первого 
+.navFooterLine [aria-label="Choose a language for shopping."] - для втоорого
+
+Find by partial link "Personal Care under $25" (or other category link if absent) reference <a> element Xpath locator
+//a[contains(@href,'s/?_encoding=UTF8&k=personal%20care&rh=p_36%')] 
+
+Find by full text "Help&Settings" <div> element (expand the All menu on the left to see the item) Xpath locator
+//div[contains(text(),'Help & Settings')] 
+//div[(text()='Help & Settings')] 
+
+Find by partial text "Gift Cards" <a> element Xpath locator
+//a[contains(text(),'Cards')] 
+
+2.Using different XPath axes find on web page http://www.way2automation.com/demo.html following elements or element groups. As a result return correspondent XPath queries:
+
+Using <header> element find all its child elements (1 level beneath).
+//header/child::*
+
+Using <header> element find all its ancestor elements (all possible levels beneath).
+//header/descendant::*
+
+Using <header> element find all its <li> ancestors.
+//header/descendant::li
+
+Using <header> element find its 2nd <li> ancestor.
+//header/descendant::li[2]
+
+Using <header> element find its ancestor <i> element that contains 'skype' in classname.
+//header/descendant::i[contains(@class,'skype')]
+
+Define "Interaction" <h1> element by text and find its parent li
+//a[contains(text(),'Interaction')]/parent::li
+
+Define "Home" <a> element by text, then find its parent <li> and finally find all menu <li> elements
+//a[text()='Home']/parent::li/following-sibling::*
